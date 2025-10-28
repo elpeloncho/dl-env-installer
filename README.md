@@ -1,4 +1,4 @@
-# Instalador de Entornos Deep Learning (˶ᵔ ᵕ ᵔ˶)
+# Instalador de Entornos para Deep Learning (˶ᵔ ᵕ ᵔ˶)
 
 Script automatizado para configurar entornos virtuales de TensorFlow y PyTorch con soporte para GPU NVIDIA/AMD en GNU/Linux.
 
@@ -6,9 +6,8 @@ Script automatizado para configurar entornos virtuales de TensorFlow y PyTorch c
 
 - [+] Detección automática de GPU (NVIDIA/AMD)
 - [+] Instalación selectiva (TensorFlow, PyTorch o ambos)
-- [+] Configuración automática de kernels de Jupyter
+- [+] Configuración automática de kernels para Jupyter
 - [+] Soporte para CUDA (NVIDIA) y ROCm (AMD)
-- [+] Verificación de instalación y GPU
 
 ## Requisitos Previos
 
@@ -21,8 +20,8 @@ Script automatizado para configurar entornos virtuales de TensorFlow y PyTorch c
 - **NVIDIA drivers** (>= 550 recomendado)
 
 ### Para GPU AMD
-- Drivers AMDGPU + ROCm (>= 6.0)
-- GPU compatible: RX 6000+, RX 7000+, MI series
+- **Drivers AMDGPU + ROCm** (>= 6.0)
+- **GPU compatible:** RX 6000+, RX 7000+, MI series
   
     Verifica que tu GPU AMD sea compatible en:
 https://rocm.docs.amd.com/projects/install-on-linux/en/latest/reference/system-requirements.html
@@ -145,7 +144,7 @@ chmod +x setup_dl_env.sh
 ./setup_dl_env.sh
 ```
 
-### 4. Seguir las instrucciones interactivas
+### 4. Seguir las instrucciones
 El script te preguntará:
 - ¿Qué framework instalar? (TensorFlow / PyTorch / Ambos)
 - ¿Configurar kernels de Jupyter? (Y/n)
