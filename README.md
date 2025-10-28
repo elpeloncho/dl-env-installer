@@ -277,4 +277,3 @@ MIT License - Ver archivo LICENSE para más detalles
 
 ---
 
-(˶ᵔ ᵕ ᵔ˶) ¡Feliz entrenamiento!
