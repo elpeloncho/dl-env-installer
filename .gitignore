@@ -3,7 +3,7 @@
 .torch_venv/
 venv/
 env/
-
+.gitignore
 # Python
 __pycache__/
 *.py[cod]
