@@ -28,7 +28,7 @@ MODE="install"  # install o remove
 print_header() {
     echo ""
     echo "  (˶ᵔ ᵕ ᵔ˶)"
-    echo "  ¡Bienvenido al gestor de entornos de Deep Learning!"
+    echo "  ¡Bienvenido al gestor de entornos para Deep Learning!"
     echo "  =================================================="
     echo ""
 }
@@ -70,11 +70,22 @@ detect_python() {
     PYTHON_BIN=$(command -v python || command -v python3)
     
     if [ -z "$PYTHON_BIN" ]; then
-        log_warning "Python no encontrado en el sistema"
+        log_warning "Python no encontrado en el sistema. Saliendo..."
         exit 1
     fi
     
     log_success "Python detectado: $PYTHON_BIN"
+}
+
+detect_jupyter() {
+    JUPYTER_BIN=$(command -v jupyter)
+    
+    if [ -z "$JUPYTER_BIN" ]; then
+        log_warning "Jupyter no encontrado en el sistema. Saliendo..."
+        exit 1
+    fi
+    
+    log_success "Jupyter detectado: $JUPYTER_BIN"
 }
 
 detect_nvidia_gpu() {
@@ -605,6 +616,10 @@ main() {
     # Selección de modo
     prompt_mode_selection
     
+    # Detección del sistema
+    detect_python
+    detect_jupyter
+    
     if [ "$MODE" = "remove" ]; then
         # Modo eliminación
         detect_existing_venvs
@@ -614,11 +629,8 @@ main() {
         # Modo instalación
         prompt_framework_selection
         prompt_jupyter_configuration
-        
-        # Detección del sistema
-        detect_python
+        # Detección de hardware
         detect_gpu
-        
         # Instalación de frameworks
         if [ "$INSTALL_TF" = true ]; then
             install_tensorflow
