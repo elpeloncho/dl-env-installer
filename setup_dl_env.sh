@@ -9,8 +9,8 @@ readonly SCRIPT_NAME="Deep Learning Installer"
 readonly TF_VENV=".tf_venv"
 readonly TORCH_VENV=".torch_venv"
 readonly TF_VERSION="2.20.0"
-readonly TORCH_VERSION="2.6.0"
-readonly CUDA_VERSION="cu124"
+readonly TORCH_VERSION="2.9.0"
+readonly CUDA_VERSION="cu126"
 
 # Variables globales
 INSTALL_TF=false
@@ -444,7 +444,7 @@ install_tensorflow() {
 install_pytorch_gpu() {
     case $GPU_TYPE in
         nvidia)
-            echo "    -> Instalando PyTorch $TORCH_VERSION con CUDA 12.4..."
+            echo "    -> Instalando PyTorch $TORCH_VERSION con CUDA 12.6..."
             pip install torch torchvision torchaudio --index-url "https://download.pytorch.org/whl/$CUDA_VERSION"
             ;;
         amd)
