@@ -218,7 +218,7 @@ prompt_jupyter_configuration() {
     echo ""
     read -p "[?] ¿Deseas añadir los entornos como kernels de Jupyter? [Y/n]: " choice
     choice=${choice:-Y}
-    
+    detect_jupyter
     if [[ "$choice" =~ ^[Yy]$ ]]; then
         ADD_JUPYTER=true
         log_success "Se configurarán los kernels de Jupyter"
@@ -336,6 +336,7 @@ remove_venv() {
 }
 
 remove_jupyter_kernel() {
+    detect_jupyter
     local venv_name=$1
     local kernel_name=""
     
@@ -618,7 +619,6 @@ main() {
     
     # Detección del sistema
     detect_python
-    detect_jupyter
     
     if [ "$MODE" = "remove" ]; then
         # Modo eliminación
